@@ -1,0 +1,19 @@
+input.letter-input {
+  width : 40px;
+  /* margin: 0 auto; */
+  text-align: center;
+}
+
+input.letter-enabled {
+  background-color: white;
+}
+
+input.letter-invalid {
+  background-color: red;
+}
+input.letter-wrong-position {
+  background-color: yellow;
+}
+input.letter-correct {
+  background-color: green;
+}
