@@ -1,11 +1,1 @@
-<div class="container" style="z-index: 0;">
-  <app-word *ngFor="let solve of solve?.tries" [model]="solve"></app-word>
-</div>
-
-<div *ngIf="solve?.finished" class="container">
-  <div class="row">
-    <div class="col">
-      <p> Game finished</p>
-    </div>
-  </div>
-</div>
+<app-word *ngFor="let solve of solve?.tries" [model]="solve" class="row"></app-word>

@@ -19,4 +19,8 @@ export class AppComponent implements OnInit {
   OnClick() {
     this.solve.nextWord();
   }
+
+  CanSubmit(): boolean {
+    return !this.solve.finished;
+  }
 }

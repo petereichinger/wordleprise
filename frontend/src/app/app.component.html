@@ -1,8 +1,14 @@
-<app-solve [solve]="solve"></app-solve>
 <div class="container">
-  <div class="row">
+  <app-solve [solve]="solve"></app-solve>
+  <div *ngIf="solve?.finished" class="row">
     <div class="col">
-      <button class="btn btn-primary" (click)="OnClick()">Submit</button>
+      <p>Game finished</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-12">
+      <button class="btn btn-primary" (click)="OnClick()" [disabled]="!CanSubmit()">Submit</button>
     </div>
   </div>
 </div>

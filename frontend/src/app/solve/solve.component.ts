@@ -17,4 +17,5 @@ export class SolveComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
 }
