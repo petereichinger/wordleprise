@@ -4,7 +4,15 @@ import { Subject } from "rxjs";
 @Injectable({ providedIn: 'root' })
 export class KeyboardService {
 
+  private _enabled = true;
+
+  public get enabled(): boolean {
+    return this._enabled;
+  }
+
   public keyClicked: Subject<string> = new Subject();
+  public returnClicked: Subject<void> = new Subject();
+  public backspaceClicked: Subject<void> = new Subject();
 
   clickLetter(key: string) {
     console.log(key);
@@ -18,9 +26,14 @@ export class KeyboardService {
 
   clickReturn() {
     console.log('return');
-
+    this.returnClicked.next();
   }
   clickBackspace() {
     console.log('backspace');
+    this.backspaceClicked.next();
+  }
+
+  setEnabled(enable: boolean) {
+    this._enabled = enable;
   }
 }

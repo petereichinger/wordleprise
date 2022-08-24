@@ -1,3 +1,4 @@
+import { KeyboardService } from "../keyboard/keyboard.service";
 import { LetterModel, LetterState } from "./word/letter/letter.model";
 import { WordModel } from "./word/word.model";
 
@@ -13,8 +14,7 @@ export class SolveModel {
     return this._tries.slice();
   }
 
-
-  constructor(public word_length: number, num_tries: number) {
+  constructor(private keyboardService: KeyboardService, public word_length: number, num_tries: number) {
     for (let i = 0; i < num_tries; i++) {
       this._tries.push(new WordModel(this.generate_letter_model_array()));
     }
@@ -25,12 +25,12 @@ export class SolveModel {
   }
 
   nextWord() {
-
     this._tries[this._currentWord].setCurrent(false);
 
     this._currentWord = this._nextWord;
 
     if (this.finished) {
+      this.keyboardService.setEnabled(false);
       return;
     }
 

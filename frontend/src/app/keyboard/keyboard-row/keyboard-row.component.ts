@@ -8,8 +8,8 @@ import { KeyboardService } from '../keyboard.service';
 })
 export class KeyboardRowComponent implements OnInit {
 
-  @Input() keys?: string
-
+  @Input() enabled = true;
+  @Input() keys?: string;
   @Input() enterButton = false;
   @Input() backspaceButton = false;
 
@@ -18,15 +18,19 @@ export class KeyboardRowComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  OnClick(key: string) {
+  onClick(key: string) {
     this.keyboardService.clickLetter(key);
   }
 
-  OnReturn() {
+  onReturn() {
     this.keyboardService.clickReturn();
   }
 
-  OnBackspace() {
+  onBackspace() {
     this.keyboardService.clickBackspace();
+  }
+
+  isDisabled() {
+    return !this.keyboardService.enabled;
   }
 }
