@@ -1,0 +1,11 @@
+<div class="row row-cols-auto p-0 justify-content-center">
+  <div class="col p-1" *ngIf="enterButton">
+    <button class="btn btn-primary keyboard-button" (click)="OnReturn()">&crarr;</button>
+  </div>
+  <div class="col p-1" *ngFor="let char of keys?.split('')">
+    <button class="btn btn-secondary keyboard-button" (click)="OnClick(char)">{{char | uppercase}}</button>
+  </div>
+  <div class="col p-1" *ngIf="backspaceButton">
+    <button class="btn btn-primary keyboard-button" (click)="OnBackspace()">&#8592;</button>
+  </div>
+</div>

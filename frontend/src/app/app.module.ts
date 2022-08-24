@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { LetterComponent } from './solve/word/letter/letter.component';
 import { WordComponent } from './solve/word/word.component';
 import { SolveComponent } from './solve/solve.component';
+import { KeyboardComponent } from './keyboard/keyboard.component';
+import { KeyboardRowComponent } from './keyboard/keyboard-row/keyboard-row.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LetterComponent,
     WordComponent,
-    SolveComponent
+    SolveComponent,
+    KeyboardComponent,
+    KeyboardRowComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container justify-content-center">
   <app-solve [solve]="solve"></app-solve>
-  <div *ngIf="solve?.finished" class="row">
+  <div *ngIf="solve?.finished" class="row row-cols-auto justify-content-center">
     <div class="col">
       <p>Game finished</p>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col col-12">
+  <app-keyboard></app-keyboard>
+  <div class="row row-cols-auto justify-content-end">
+    <div class="col">
       <button class="btn btn-primary" (click)="OnClick()" [disabled]="!CanSubmit()">Submit</button>
     </div>
   </div>

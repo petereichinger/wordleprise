@@ -3,10 +3,7 @@ import { WordModel } from "./word/word.model";
 
 export class SolveModel {
 
-  public get finished(): boolean {
-    console.log(this._nextWord)
-    return this._currentWord >= this._tries.length;
-  }
+  public get finished(): boolean { return this._currentWord >= this._tries.length; }
 
   private _tries: WordModel[] = [];
   private _nextWord: number = 0;
@@ -40,6 +37,5 @@ export class SolveModel {
     this._tries[this._currentWord].setCurrent(true);
 
     this._nextWord++;
-    console.log(this._currentWord, this._nextWord)
   }
 }
