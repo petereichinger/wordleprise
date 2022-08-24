@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LetterState } from './letter/letter-state.model';
+import { WordModel } from './word.model';
 import { WordService } from './word.service';
 
 @Component({
@@ -10,14 +10,17 @@ import { WordService } from './word.service';
 })
 export class WordComponent implements OnInit {
 
-  @Input() characters : number = 0
+  @Input() model?: WordModel
 
   constructor(private wordService: WordService) { }
 
   ngOnInit(): void {
+    if (!this.model) {
+      console.error("please set wordmodel")
+    }
   }
 
-  getLetterState() : LetterState {
-    return LetterState.Enabled;
-  }
+  // getLetterState(): LetterState {
+  //   return LetterState.Enabled;
+  // }
 }

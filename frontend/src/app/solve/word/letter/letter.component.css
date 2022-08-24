@@ -1,0 +1,14 @@
+button.letter-input {
+  min-width: 3em;
+  min-height: 3em;
+}
+
+div.button-margin {
+  min-width: 4em;
+  min-height: 4em;
+  align-items: center;
+}
+
+button.btn-dark:enabled {
+  background-color: lightgray;
+}

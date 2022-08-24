@@ -1,0 +1,8 @@
+<div class="row row-cols-auto">
+  <app-letter class="col p-0" *ngFor="let letter of model?.letters" [model]="letter" [current]="model?.current?? false">
+  </app-letter>
+</div>
+
+<div *ngIf="!model">Please set model</div>
+<!-- <app-letter *ngFor="let character of [].constructor(characters); let idx = index" class="col-sm-1"
+              [state]="letterState" [index]="idx"></app-letter> -->

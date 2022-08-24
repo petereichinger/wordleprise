@@ -1,0 +1,21 @@
+<!-- <div>
+  <input type="text"
+         class="form-control letter-input"
+         maxlength="1"
+         [(ngModel)]="letter"
+         [ngClass]="state"
+         [disabled]="getIsDisabled()"
+         (input)="OnInput($event)"
+         (keypress)="OnKeyPress($event)"
+         (keyup)="OnKeyUp($event)"
+         #letterInput>
+</div> -->
+
+<div class="button-margin">
+  <button type="button"
+          class="btn btn-lg letter-input"
+          [ngClass]="getStateClass()"
+          [disabled]="getIsDisabled()">
+    {{getButtonText()}}
+  </button>
+</div>

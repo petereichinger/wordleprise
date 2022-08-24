@@ -4,14 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LetterComponent } from './word/letter/letter.component';
-import { WordComponent } from './word/word.component';
+import { LetterComponent } from './solve/word/letter/letter.component';
+import { WordComponent } from './solve/word/word.component';
+import { SolveComponent } from './solve/solve.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LetterComponent,
-    WordComponent
+    WordComponent,
+    SolveComponent
   ],
   imports: [
     BrowserModule,
