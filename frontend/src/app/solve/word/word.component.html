@@ -1,8 +1,10 @@
 <div class="row row-cols-auto justify-content-center">
-  <app-letter class="col p-0" *ngFor="let letter of model?.letters" [model]="letter" [current]="model?.current?? false">
+  <app-letter class="col p-0"
+              *ngFor="let letter of model?.letters; let idx = index"
+              [model]="letter"
+              [currentWord]="model?.current?? false"
+              [currentLetter]="model?.index === idx">
   </app-letter>
 </div>
 
 <div *ngIf="!model">Please set model</div>
-<!-- <app-letter *ngFor="let character of [].constructor(characters); let idx = index" class="col-sm-1"
-              [state]="letterState" [index]="idx"></app-letter> -->

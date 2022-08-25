@@ -3,6 +3,12 @@ button.letter-input {
   min-height: 3em;
 }
 
+button.active-letter {
+  outline-color: black;
+  outline-width: 2pt;
+  outline-style: outset;
+}
+
 div.button-margin {
   min-width: 4em;
   min-height: 4em;

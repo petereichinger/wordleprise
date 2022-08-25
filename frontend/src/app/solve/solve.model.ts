@@ -14,6 +14,10 @@ export class SolveModel {
     return this._tries.slice();
   }
 
+  private get current(): WordModel {
+    return this._tries[this._currentWord];
+  }
+
   constructor(private keyboardService: KeyboardService, public word_length: number, num_tries: number) {
     for (let i = 0; i < num_tries; i++) {
       this._tries.push(new WordModel(this.generate_letter_model_array()));
@@ -21,11 +25,17 @@ export class SolveModel {
   }
 
   generate_letter_model_array(): LetterModel[] {
-    return new Array(this.word_length).fill(new LetterModel(LetterState.Unsolved));
+    const array = [];
+
+    for (let i = 0; i < this.word_length; ++i) {
+      array.push(new LetterModel(LetterState.Unsolved))
+    }
+
+    return array;
   }
 
   nextWord() {
-    this._tries[this._currentWord].setCurrent(false);
+    this.current.setCurrent(false);
 
     this._currentWord = this._nextWord;
 
@@ -34,8 +44,15 @@ export class SolveModel {
       return;
     }
 
-    this._tries[this._currentWord].setCurrent(true);
+    this.current.setCurrent(true);
 
     this._nextWord++;
+  }
+
+  enterLetter(letter: string) {
+    this.current.enterLetter(letter);
+  }
+  removeLetter() {
+    this.current.removeLetter();
   }
 }

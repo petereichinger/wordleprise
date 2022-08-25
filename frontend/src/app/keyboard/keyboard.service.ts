@@ -10,7 +10,7 @@ export class KeyboardService {
     return this._enabled;
   }
 
-  public keyClicked: Subject<string> = new Subject();
+  public letterClicked: Subject<string> = new Subject();
   public returnClicked: Subject<void> = new Subject();
   public backspaceClicked: Subject<void> = new Subject();
 
@@ -21,7 +21,7 @@ export class KeyboardService {
       return;
     }
 
-    this.keyClicked.next(key);
+    this.letterClicked.next(key);
   }
 
   clickReturn() {

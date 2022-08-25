@@ -11,7 +11,8 @@ import { LetterModel, LetterState } from './letter.model';
 export class LetterComponent implements OnInit {
 
 
-  @Input() current: boolean = false;
+  @Input() currentWord: boolean = false;
+  @Input() currentLetter: boolean = false;
   @Input() model?: LetterModel;
 
 
@@ -26,11 +27,11 @@ export class LetterComponent implements OnInit {
   }
 
   getStateClass(): string {
-    return this.model?.state ?? ''
+    return `${this.model?.state ?? ''} ${(this.currentLetter && this.currentWord) ? 'active-letter' : ''} `
   }
 
   getIsDisabled(): boolean {
-    return !this.current;
+    return !this.currentWord;
   }
 
 

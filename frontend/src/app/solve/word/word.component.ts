@@ -19,8 +19,4 @@ export class WordComponent implements OnInit {
       console.error("please set wordmodel")
     }
   }
-
-  // getLetterState(): LetterState {
-  //   return LetterState.Enabled;
-  // }
 }
