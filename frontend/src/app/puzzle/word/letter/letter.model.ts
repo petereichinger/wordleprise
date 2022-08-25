@@ -1,8 +1,6 @@
 export enum LetterState {
-  // Enabled = 'btn-light',
-  // Disabled = 'btn-secondary',
   Unsolved = 'btn-dark',
-  Invalid = 'btn-danger',
+  Invalid = 'btn-secondary',
   WrongPosition = 'btn-warning',
   Correct = 'btn-success'
 }

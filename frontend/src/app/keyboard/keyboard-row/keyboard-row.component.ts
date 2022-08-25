@@ -33,4 +33,11 @@ export class KeyboardRowComponent implements OnInit {
   isDisabled() {
     return !this.keyboardService.enabled;
   }
+
+  isReturnDisabled() {
+    return this.isDisabled() || !this.keyboardService.returnEnabled;
+  }
+  isBackspaceDisabled() {
+    return this.isDisabled() || !this.keyboardService.backspaceEnabled;
+  }
 }

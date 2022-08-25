@@ -1,6 +1,6 @@
 <div class="row row-cols-auto p-0 justify-content-center">
   <div class="col p-1" *ngIf="enterButton">
-    <button class="btn btn-primary keyboard-button" (click)="onReturn()" [disabled]="isDisabled()">
+    <button class="btn btn-primary keyboard-button" (click)="onReturn()" [disabled]="isReturnDisabled()">
       <span class="bi bi-arrow-return-left"></span>
     </button>
   </div>
@@ -10,7 +10,7 @@
     </button>
   </div>
   <div class="col p-1" *ngIf="backspaceButton">
-    <button class="btn btn-primary keyboard-button" (click)="onBackspace()" [disabled]="isDisabled()">
+    <button class="btn btn-primary keyboard-button" (click)="onBackspace()" [disabled]="isBackspaceDisabled()">
       <span class="bi bi-backspace"></span>
     </button>
   </div>

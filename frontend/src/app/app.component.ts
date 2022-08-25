@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { KeyboardService } from './keyboard/keyboard.service';
 import { PuzzleModel } from './puzzle/puzzle.model';
+import { PuzzleService } from './puzzle/puzzle.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private letterSub: Subscription;
   private backspaceSub: Subscription;
 
-  constructor(private keyboardService: KeyboardService) {
+  constructor(private puzzleService: PuzzleService, private keyboardService: KeyboardService) {
     this.returnSub = this.keyboardService.returnClicked.subscribe(() => {
       this.puzzle.nextWord();
     });
@@ -33,9 +34,9 @@ export class AppComponent implements OnInit, OnDestroy {
     this.letterSub.unsubscribe();
   }
 
-  puzzle: PuzzleModel = new PuzzleModel(this.keyboardService, 5, 6);
+  puzzle: PuzzleModel = new PuzzleModel(this.puzzleService, this.keyboardService, 5, 6);
 
   ngOnInit(): void {
-    this.puzzle.nextWord();
+    this.puzzle.begin();
   }
 }

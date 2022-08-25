@@ -5,10 +5,12 @@ import { Subject } from "rxjs";
 export class KeyboardService {
 
   private _enabled = true;
+  private _returnEnabled = false;
+  private _backspaceEnabled = false;
 
-  public get enabled(): boolean {
-    return this._enabled;
-  }
+  public get enabled(): boolean { return this._enabled; }
+  public get returnEnabled(): boolean { return this._returnEnabled; }
+  public get backspaceEnabled(): boolean { return this._backspaceEnabled; }
 
   public letterClicked: Subject<string> = new Subject();
   public returnClicked: Subject<void> = new Subject();
@@ -35,5 +37,13 @@ export class KeyboardService {
 
   setEnabled(enable: boolean) {
     this._enabled = enable;
+  }
+
+  setReturnEnabled(enable: boolean) {
+    this._returnEnabled = enable;
+  }
+
+  setBackspaceEnabled(enable: boolean) {
+    this._backspaceEnabled = enable;
   }
 }

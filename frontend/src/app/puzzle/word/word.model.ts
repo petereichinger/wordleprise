@@ -10,9 +10,14 @@ export class WordModel {
     return this._letters.slice();
   }
 
-  private get currentLetter(): LetterModel {
-    return this._letters[this.index];
+  public get solution(): string | undefined {
+    return this._letters.every(l => l.letter) ? this._letters.map(l => l.letter).join('') : undefined
   }
+
+  private get currentLetter(): LetterModel | undefined {
+    return this.validIndex() ? this._letters[this.index] : undefined;
+  }
+
 
   constructor(letters: LetterModel[]) {
     this._letters = letters.slice()
@@ -27,7 +32,7 @@ export class WordModel {
   }
 
   enterLetter(letter: string) {
-    if (!this.validIndex()) {
+    if (!this.currentLetter) {
       return;
     }
     this.currentLetter.letter = letter;
@@ -35,11 +40,14 @@ export class WordModel {
   }
 
   removeLetter() {
-    if (!this.validIndex()) {
+
+    if (!this.currentLetter) {
       return;
     }
 
-    this.currentLetter.letter = undefined;
-    this.index = Math.max(this.index - 1, 0);
+    if (!this.currentLetter.letter) {
+      this.index = Math.max(this.index - 1, 0);
+    }
+    this._letters[this.index].letter = undefined;
   }
 }
