@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { KeyboardService } from './keyboard/keyboard.service';
-import { SolveModel } from './solve/solve.model';
+import { PuzzleModel } from './puzzle/puzzle.model';
 
 @Component({
   selector: 'app-root',
@@ -16,15 +16,15 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(private keyboardService: KeyboardService) {
     this.returnSub = this.keyboardService.returnClicked.subscribe(() => {
-      this.solve.nextWord();
+      this.puzzle.nextWord();
     });
 
     this.backspaceSub = this.keyboardService.backspaceClicked.subscribe(() => {
-      this.solve.removeLetter();
+      this.puzzle.removeLetter();
     });
 
     this.letterSub = this.keyboardService.letterClicked.subscribe((letter) => {
-      this.solve.enterLetter(letter);
+      this.puzzle.enterLetter(letter);
     });
   }
   ngOnDestroy(): void {
@@ -33,9 +33,9 @@ export class AppComponent implements OnInit, OnDestroy {
     this.letterSub.unsubscribe();
   }
 
-  solve: SolveModel = new SolveModel(this.keyboardService, 5, 6);
+  puzzle: PuzzleModel = new PuzzleModel(this.keyboardService, 5, 6);
 
   ngOnInit(): void {
-    this.solve.nextWord();
+    this.puzzle.nextWord();
   }
 }

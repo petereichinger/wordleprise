@@ -2,7 +2,7 @@ import { KeyboardService } from "../keyboard/keyboard.service";
 import { LetterModel, LetterState } from "./word/letter/letter.model";
 import { WordModel } from "./word/word.model";
 
-export class SolveModel {
+export class PuzzleModel {
 
   public get finished(): boolean { return this._currentWord >= this._tries.length; }
 
